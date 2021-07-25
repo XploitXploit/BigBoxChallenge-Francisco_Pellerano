@@ -82,14 +82,14 @@ WSGI_APPLICATION = 'backend.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'BigBox',
-        'USER': 'postgres',
-        'PASSWORD': 'amonra1313',
-        'HOST': 'localhost',
+        'NAME': 'd9v543qounvito',
+        'USER': 'vusgyprshlhcwf',
+        'PASSWORD': '64b27a60b47f1e7e4387d75a14c6c4188eaf794bc12c98f11695f694ae6beb2f',
+        'HOST': 'ec2-52-45-179-101.compute-1.amazonaws.com',
         'PORT': '5432',
     }
 }
-
+#postgres://vusgyprshlhcwf:64b27a60b47f1e7e4387d75a14c6c4188eaf794bc12c98f11695f694ae6beb2f@ec2-52-45-179-101.compute-1.amazonaws.com:5432/
 db_from_env = dj_database_url.config(conn_max_age=600)
 DATABASES['default'].update(db_from_env)
 
