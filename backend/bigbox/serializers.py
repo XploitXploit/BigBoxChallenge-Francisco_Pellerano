@@ -27,7 +27,7 @@ class BoxSerializerCustom(serializers.ModelSerializer):
 class ActivitySerializer(serializers.ModelSerializer):
     class Meta:
         model = Activity
-        fields = ['name','internal_name',"description",'category','reasons','purchase_available']
+        fields = ['id','name','internal_name',"description",'category','reasons','purchase_available']
     
 
 class BoxActivitiesSerializer(serializers.ModelSerializer):

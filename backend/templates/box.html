@@ -3,16 +3,22 @@
 
 {% block content %}
 <div class="container-fluid p-5">
+  <div class="row">
     {% for box in boxList %}
-    <div class="row">
-        <div class="card" style="width: 18rem;">
-            <div class="card-body">
-              <h5 class="card-title">{{box.id}} || {{box.name}}</h5>
-              <h6 class="card-subtitle mb-2 text-muted">Precio: ${{box.price}}</h6>
-              <p class="card-text">{{box.description}}</p>
-            </div>
+    
+      <div class="col-sm">
+        <div class="card" style="width: 20rem;">
+          <div class="card-body">
+            <h5 class="card-title">{{box.id}} || {{box.name}}</h5>
+            <h6 class="card-subtitle mb-2 text-muted">Precio: ${{box.price}}</h6>
+            <p class="card-text">{% autoescape off %}{{box.description}}{% endautoescape %}</p>
+            <a class="btn btn-primary" href="{% url 'boxId' box.id %}" role="button">Detalle</a>
           </div>
-    </div>
+        </div>
+      </div>
+        
+    
     {% endfor %}
+  </div>
 </div>
 {% endblock %}

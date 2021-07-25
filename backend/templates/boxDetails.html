@@ -2,23 +2,37 @@
 
 
 {% block content %}
-<div class="jumbotron jumbotron-fluid">
-    <div class="container">
-      <h1 class="display-4">{{box.name}}</h1>
-      <p >
-        {% autoescape off %}{{box.description}}{% endautoescape %}
-      </p>
-    
-      <h3>Actividades</h3>
-      <div class="row md-6">
+<div class="container">
+<div class="jumbotron">
+    <a href="{% url 'boxList' %}" class="badge badge-primary"><< back</a> 
+    <h1 class="display-4">{{box.name}}</h1>
+    <p >
+      {% autoescape off %}{{box.description}}{% endautoescape %}
+    </p>
+    <div class="justify-content-end">
+      <a class="btn btn-primary " href="{% url 'boxActivities' box.id %}" role="button">Todas las Actividades</a>
+    </div>
+      <h3 class="py-3">Actividades</h3>
+      <div class="row ">
+        
         {% for activity in box.activities %}
-            <ul class="list-group py-1">
-                <li class="list-group-item">{{activity.name}}</li>
-                <li class="list-group-item">{% autoescape off %}{{activity.description}}{% endautoescape %}</li>
-            </ul>
+          
+            <div class="card my-1" style="width: 70rem;">
+              <div class="card-header my-2"><h5 class="card-title">{{activity.id}}  ||  {{activity.name}}</h5></div>
+              <div class="card-body">
+                
+                <h6 class="card-subtitle mb-2 text-muted">{% autoescape off %}{{activity.description}}{% endautoescape %}</h6>
+                <a class="btn btn-primary" href="{% url 'boxActivitiesId' box.id activity.id %}" role="button">Detalle</a>
+              </div>
+            </div>
+          
         {% endfor %}
       </div>
+        
+  
       
-    </div>
   </div>
+      
+</div>
+  
 {% endblock %}

@@ -1,12 +1,13 @@
 
 from django.urls import path, include
 from django.conf.urls import url
-from .views import BoxList, getActivity,getBox, getBoxActivities,bootstrap4_index
+from .views import BoxList, getActivity,getBox, getBoxActivities, getBoxSlug, homeView
 
 urlpatterns = [
-    path(r'', bootstrap4_index, name="index"),
+    path(r'', homeView,name="home"),
     path('box/', BoxList, name="boxList"),
-    path('box/<str:pk>/',getBox,name='boxId'),
-    path('box/<str:pk>/activity/',getBoxActivities,name='boxActivities'),
-    path('box/<str:pk>/activity/<str:pkA>/',getActivity,name='boxActivities'),
+    path('box/<int:pk>/',getBox,name='boxId'),
+    path('box/<str:_slug>/',getBoxSlug,name='boxSlug'),
+    path('box/<int:pk>/activity/',getBoxActivities,name='boxActivities'),
+    path('box/<int:pk>/activity/<int:pkA>/',getActivity,name='boxActivitiesId'),
 ]
