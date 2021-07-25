@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+<div class="jumbotron jumbotron-fluid">
+    <div class="container">
+        <a href="{% url 'boxId' box.id %}" class="badge badge-primary"><< back</a>
+        <h5>Box Nº {{box.id}}</h5>
+        <hr class="my-4">
+    
+      <h1 class="display-4">{{activity.name}}</h1>
+      <p class="lead">
+        {% autoescape off %}{{activity.description}}{% endautoescape %}
+      </p>
+      <hr class="my-4">
+
+      </div>
+      
+    </div>
+  </div>
+{% endblock %}
